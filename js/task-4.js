@@ -1,23 +1,13 @@
 'use strict';
 
 const formatString = function (string) {
-  const stringToArray = string.split(''); //перевести строку в массив с элементами;
-  // const limit = 40;
-  let stringModified = [];
-  let string40 = [];
-  let string40dots = [];
-
-  if (stringToArray.length <= 40) {
-    stringModified = stringToArray.join(''); // массив строка;
-    return stringModified;
-    // break;
+  let string40;
+  if (string.length <= 40) {
+    return string;
+  } else {
+    string40 = string.slice(0, 40);
+    return string40 + '...';
   }
-  string40 = stringToArray.slice(0, 40);
-  string40.push('...');
-  string40 = string40.join(''); // массив строка;
-  stringModified = string40;
-
-  return stringModified;
 };
 
 // Вызовы функции для проверки работоспособности твоей реализации.
@@ -37,3 +27,25 @@ console.log(
   ),
 );
 // вернется форматированная строка
+
+//* ---------------- OLD WORK ----------------
+
+// const formatString = function (string) {
+//   const stringToArray = string.split(''); //перевести строку в массив с элементами;
+//   // const limit = 40;
+//   let stringModified = [];
+//   let string40 = [];
+//   let string40dots = [];
+
+//   if (stringToArray.length <= 40) {
+//     stringModified = stringToArray.join(''); // массив строка;
+//     return stringModified;
+//     // break;
+//   }
+//   string40 = stringToArray.slice(0, 40);
+//   string40.push('...');
+//   string40 = string40.join(''); // массив строка;
+//   stringModified = string40;
+
+//   return stringModified;
+// };
