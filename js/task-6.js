@@ -3,24 +3,27 @@
 let userInput;
 const numbers = [];
 let total = 0;
+let message;
 
-while ((userInput = prompt('Введите число:')) !== null) {
-  userInput = Number(userInput);
+while (true) {
+  userInput = prompt('Введите число:');
 
-  if (Number.isNaN(userInput)) {
-    alert('Было введено не число, попробуйте еще раз!');
-    continue;
+  if (!+userInput) {
+    if (userInput) {
+      alert('Было введено не число, попробуйте еще раз!');
+    }
+    for (let i = 0; i < numbers.length; i += 1) {
+      total += +numbers[i];
+    }
+    message = `Общая сумма чисел равна ${total}`;
+    break;
   }
 
   numbers.push(userInput);
 }
+console.log(message);
 
-alert('Отменено пользователем');
-
-for (let i = 0; i < numbers.length; i++) {
-  total += numbers[i];
-}
-
-console.log(`Общая сумма чисел равна ${total}`);
-
-alert(`Общая сумма чисел равна ${total}`);
+// continue;
+// alert('Отменено пользователем');
+// userInput = Number(userInput);
+// if (Number.isNaN(userInput)) {
